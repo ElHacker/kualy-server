@@ -1,0 +1,2 @@
+english = {}
+module.exports = english

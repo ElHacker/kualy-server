@@ -1,0 +1,2 @@
+CauseController = {}
+module.exports = CauseController

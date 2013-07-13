@@ -1,0 +1,2 @@
+ActivityController = {}
+module.exports = ActivityController
