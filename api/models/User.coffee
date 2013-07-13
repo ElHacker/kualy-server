@@ -1,10 +1,10 @@
 # User model
 module.exports =
   attributes:
-    name: "STRING"
-    username: "STRING"
-    bio: "STRING"
-    email: "STRING"
-    followingUser: [ "INTEGER" ]
-    followingCauses: [ "INTEGER" ]
-    collaboratingCauses: [ "INTEGER" ]
+    name: 'STRING'
+    username: 'STRING'
+    bio: 'STRING'
+    email: 'STRING'
+    followingUsers: [ 'INTEGER' ]
+    followingCauses: [ 'INTEGER' ]
+    collaboratingCauses: [ 'INTEGER' ]

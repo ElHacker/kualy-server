@@ -1,6 +1,6 @@
 # Cause model
 module.exports =
   attributes:
-    name: "STRING"
-    description: "STRING"
-    collaborators: [ "INTEGER" ]
+    name: 'STRING'
+    description: 'STRING'
+    collaborators: [ 'INTEGER' ]

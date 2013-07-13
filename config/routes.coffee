@@ -1,3 +1,7 @@
 module.exports.routes = 
-  "/":
-    controller: "home"
+  '/':
+    controller: 'home'
+
+  'get /user/:id/activity':
+    controller: 'user'
+    action: 'activity'
