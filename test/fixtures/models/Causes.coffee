@@ -12,3 +12,5 @@ Causes = [
     collaborators: [2]
   }
 ]
+
+module.exports = Causes

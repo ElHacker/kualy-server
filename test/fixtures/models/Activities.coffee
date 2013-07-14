@@ -44,3 +44,5 @@ Activities = [
     repliestTo: []
   }
 ]
+
+module.exports = Activities
