@@ -1,5 +1,7 @@
 Sails = require 'sails'
 fixtureUsers = require './fixtures/models/Users'
+fixtureCauses = require './fixtures/models/Causes'
+fixtureActivities = require './fixtures/models/Activities'
 app = {}
 
 before (done) ->
@@ -26,8 +28,12 @@ before (done) ->
     else
       # Create user fixture records in database
       User.createEach fixtureUsers, () ->
-        console.log "DONE creating users"
-        done()
+        console.log 'DONE creating users'
+        Cause.createEach fixtureCauses, () ->
+          console.log 'DONE creating causes'
+          Activity.createEach fixtureActivities, () ->
+            console.log 'DONE creating activities'
+            done()
 
 after (done) ->
   # Kill the server

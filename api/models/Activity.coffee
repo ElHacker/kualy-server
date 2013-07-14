@@ -6,6 +6,6 @@ module.exports =
     mediaURL: 'STRING'
     karma: 'INTEGER'
     author: 'INTEGER'
-    supportCause: 'INTEGER'
+    supportsCause: 'INTEGER'
     mentions: [ 'INTEGER' ]
     repliesTo: [ 'INTEGER' ]
