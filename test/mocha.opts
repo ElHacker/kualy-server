@@ -1,0 +1,5 @@
+-R spec
+--ui bdd
+--compilers coffee:coffee-script
+--recursive
+--globals parseCookie,ConnectSession,Activity,Cause,User,_,async,utile,__,__n,getLocale,verb
