@@ -2,6 +2,6 @@ module.exports.routes =
   '/':
     controller: 'home'
 
-  'get /user/:id/activity':
-    controller: 'user'
+  'get /users/:id/activity':
+    controller: 'users'
     action: 'activity'

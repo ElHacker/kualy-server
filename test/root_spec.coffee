@@ -27,11 +27,11 @@ before (done) ->
       done(err)
     else
       # Create user fixture records in database
-      User.createEach fixtureUsers, () ->
+      Users.createEach fixtureUsers, () ->
         console.log 'DONE creating users'
-        Cause.createEach fixtureCauses, () ->
+        Causes.createEach fixtureCauses, () ->
           console.log 'DONE creating causes'
-          Activity.createEach fixtureActivities, () ->
+          Activities.createEach fixtureActivities, () ->
             console.log 'DONE creating activities'
             done()
 

@@ -2,7 +2,7 @@ require 'should'
 
 describe 'User', ->
   it 'should have the right structure', (done) ->
-    User.find(1).done (err, user) ->
+    Users.find(1).done (err, user) ->
       if err
         done(err)
       else

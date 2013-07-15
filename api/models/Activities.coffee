@@ -1,4 +1,4 @@
-# Activity model
+# Activities model
 module.exports =
   attributes:
     body: 'STRING'

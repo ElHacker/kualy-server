@@ -1,4 +1,4 @@
-# Cause model
+# Causes model
 module.exports =
   attributes:
     name: 'STRING'

@@ -1,4 +1,4 @@
-# User model
+# Users model
 module.exports =
   attributes:
     name: 'STRING'
