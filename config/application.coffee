@@ -1,6 +1,6 @@
 module.exports =
-  appName: "Sails Application"
-  port: 1337
+  appName: "Kualy"
+  port: process.env.PORT || 1337
   environment: "development"
   log:
-    level: "info"
+    level: "verbose"

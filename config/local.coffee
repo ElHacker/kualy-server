@@ -1,1 +1,1 @@
-
+module.exports.environment = "production"
