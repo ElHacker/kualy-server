@@ -6,7 +6,7 @@ Users = [
     bio: 'Super Hacker'
     email: 'braulio@kualy.com'
     followingUsers: [2]
-    followingCauses: [1, 2]
+    followingCauses: [1]
     collaboratingCauses: [1]
   },
   {
