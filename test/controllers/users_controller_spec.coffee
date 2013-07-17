@@ -1,7 +1,7 @@
 require 'should'
 request = require 'supertest'
 
-describe 'User controller', ->
+describe 'Users controller', ->
 
   describe 'GET /users/:id/activity', ->
 
