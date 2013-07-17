@@ -28,12 +28,8 @@ before (done) ->
     else
       # Create user fixture records in database
       Users.createEach fixtureUsers, () ->
-        console.log 'DONE creating users'
         Causes.createEach fixtureCauses, () ->
-          console.log 'DONE creating causes'
-          Activities.createEach fixtureActivities, () ->
-            console.log 'DONE creating activities'
-            done()
+          Activities.createEach fixtureActivities, done
 
 after (done) ->
   # Kill the server
