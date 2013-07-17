@@ -3,6 +3,27 @@ request = require 'supertest'
 
 describe 'Users controller', ->
 
+  describe 'GET /users/:id', ->
+
+    it 'should return a user', (done) ->
+      userId = 1
+      request(sails.express.app)
+        .get("/users/#{userId}")
+        .set('Content-Type', 'application/json')
+        .end (err, res) ->
+          if err then done(err)
+          user = res.body
+          res.should.have.status 200
+          user.id.should.eql userId
+          user.should.have.property 'name'
+          user.should.have.property 'username'
+          user.should.have.property 'bio'
+          user.should.have.property 'email'
+          user.should.have.property 'followingUsers'
+          user.should.have.property 'followingCauses'
+          user.should.have.property 'collaboratingCauses'
+          done()
+
   describe 'GET /users/:id/activity', ->
 
     it 'should return the activities posted by a user', (done) ->
