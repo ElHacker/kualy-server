@@ -9,6 +9,7 @@
         "async": "0.2.9",
         "coffee-script": "1.4.0",
         "sails-mongo": ">= 0.0.0"
+        "express-form": "0.7.2"
     },
     "devDependencies": {
       "mocha": "1.12.0",

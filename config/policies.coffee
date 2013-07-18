@@ -1,1 +1,6 @@
-module.exports.policies = "*": true
+module.exports.policies =
+  '*': true
+
+  ActivitiesController: {
+    'create': 'activityIsValid'
+  }
