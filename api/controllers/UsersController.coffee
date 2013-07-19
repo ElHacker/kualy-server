@@ -1,6 +1,24 @@
 async = require 'async'
 
 UsersController =
+
+  update: (req, res) ->
+    userId = req.param('id')
+    Users.find(userId).done (error, user) ->
+      if error then return res.json({error}, 500)
+      unless user then return res.json({error:'No user with that id'}, 404)
+      unless req.form.isValid then return res.json({errors: req.form.errors}, 422)
+
+      # Update user with existing fields
+      user.name = req.form.name if req.form.name?
+      user.username = req.form.username if req.form.username?
+      user.bio = req.form.bio if req.form.bio?
+      user.email = req.form.email if req.form.email?
+
+      Users.update(user.id, user).done (error, updatedUser) ->
+        if error then return res.json({error}, 500)
+        res.json updatedUser, 200
+
   activity: (req, res) ->
     authorId = req.param('id')
     limitItems = req.param('limit') ? 0

@@ -11,7 +11,7 @@ describe 'Users controller', ->
         .get("/users/#{userId}")
         .set('Content-Type', 'application/json')
         .end (err, res) ->
-          if err then done(err)
+          if err then return done(err)
           user = res.body
           res.should.have.status 200
           user.id.should.eql userId
@@ -24,6 +24,27 @@ describe 'Users controller', ->
           user.should.have.property 'collaboratingCauses'
           done()
 
+  describe 'PUT /users/:id', ->
+
+    it 'should update a user', (done) ->
+      user =
+        id: 1
+        name: 'New Name'
+        username: 'newUserName'
+        bio: 'new bio'
+        email: 'new@email.com'
+      request(sails.express.app)
+        .put("/users/#{user.id}")
+        .set('Content-Type', 'application/json')
+        .send(user)
+        .end (err, res) ->
+          if err then return done(err)
+          updatedUser = res.body
+          req.should.have.status 200
+          updatedUser.should.eql user
+          done()
+
+
   describe 'GET /users/:id/activity', ->
 
     it 'should return the activities posted by a user', (done) ->
@@ -32,7 +53,7 @@ describe 'Users controller', ->
         .get("/users/#{userId}/activity")
         .set('Content-Type', 'application/json')
         .end (err, res) ->
-          if err then done(err)
+          if err then return done(err)
           res.should.have.status(200)
           for activity in res.body.activities
             activity.author.should.equal(userId)
@@ -43,7 +64,7 @@ describe 'Users controller', ->
     it 'should return the feed containing activities by users and causes followed by a user', (done) ->
       userId = 1
       Users.find(userId).done (err, user) ->
-        if err then done(err)
+        if err then return done(err)
         request(sails.express.app)
           .get("/users/#{userId}/feed")
           .set('Content-Type', 'application/json')
