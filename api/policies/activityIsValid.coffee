@@ -7,7 +7,7 @@ module.exports = form(  # Form filter and validation middleware
     .required()
     .notEmpty()
     .maxLength(280)
-    .is(/[a-z#@]+/i, "Formatting error")
+    .is(/[a-z#@]+/i, 'Error de formato')
 
   field('author')
     .required()

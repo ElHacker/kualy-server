@@ -40,10 +40,13 @@ describe 'Users controller', ->
         .end (err, res) ->
           if err then return done(err)
           updatedUser = res.body
-          req.should.have.status 200
-          updatedUser.should.eql user
+          res.should.have.status 200
+          updatedUser.id.should.eql user.id
+          updatedUser.name.should.eql user.name
+          updatedUser.username.should.eql user.username
+          updatedUser.bio.should.eql user.bio
+          updatedUser.email.should.eql user.email
           done()
-
 
   describe 'GET /users/:id/activity', ->
 

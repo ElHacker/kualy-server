@@ -15,7 +15,7 @@ UsersController =
       user.bio = req.form.bio if req.form.bio?
       user.email = req.form.email if req.form.email?
 
-      Users.update(user.id, user).done (error, updatedUser) ->
+      Users.update user.id, user, (error, updatedUser) ->
         if error then return res.json({error}, 500)
         res.json updatedUser, 200
 
