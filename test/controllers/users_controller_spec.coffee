@@ -48,6 +48,17 @@ describe 'Users controller', ->
           updatedUser.email.should.eql user.email
           done()
 
+  describe 'DELETE /users/:id', ->
+
+    it 'should not destroy a user', (done) ->
+      userId = 1
+      request(sails.express.app)
+        .del("/users/#{userId}")
+        .end (err, res) ->
+          console.log err
+          res.should.have.status 405
+          done()
+
   describe 'GET /users/:id/activity', ->
 
     it 'should return the activities posted by a user', (done) ->

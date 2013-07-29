@@ -1,10 +1,9 @@
 module.exports.policies =
   '*': true
 
-  UsersController: {
+  UsersController:
     'update': 'userIsValid'
-  }
+    'destroy': 'methodNotAllowed'
 
-  ActivitiesController: {
+  ActivitiesController:
     'create': 'activityIsValid'
-  }
