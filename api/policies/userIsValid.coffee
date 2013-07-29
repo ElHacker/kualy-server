@@ -4,14 +4,12 @@ field = form.field
 module.exports = form(
   field('name')
     .trim()
-    .required()
     .notEmpty()
     .maxLength(20)
     .is(/[\w\s]+/)
 
   field('username')
     .trim()
-    .required()
     .notEmpty()
     .maxLength(15)
 
@@ -22,7 +20,5 @@ module.exports = form(
 
   field('email')
     .trim()
-    .required()
-    .notEmpty()
     .isEmail()
 )
