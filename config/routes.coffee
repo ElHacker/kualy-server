@@ -6,6 +6,10 @@ module.exports.routes =
     controller: 'users'
     action: 'followCause'
 
+  'post /users/:id/followingUsers':
+    controller: 'users'
+    action: 'followUser'
+
   'get /users/:id/activity':
     controller: 'users'
     action: 'activity'

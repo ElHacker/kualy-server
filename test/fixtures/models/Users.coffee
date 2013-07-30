@@ -5,7 +5,7 @@ Users = [
     username: 'HackerOfDreams'
     bio: 'Super Hacker'
     email: 'braulio@kualy.com'
-    followingUsers: [2]
+    followingUsers: []
     followingCauses: [1]
     collaboratingCauses: [1]
   },

@@ -88,6 +88,35 @@ describe 'Users controller', ->
           res.should.have.status 403
           done()
 
+  describe 'POST /users/:id/followingUsers', ->
+
+    it 'should create a follow relationship between two users', (done) ->
+      userId = 1
+      data =
+        idUser: 2
+      request(sails.express.app)
+        .post("/users/#{userId}/followingUsers")
+        .set('Content-Type', 'application/json')
+        .send(data)
+        .end (err, res) ->
+          if err then return done(err)
+          res.should.have.status 200
+          res.body.followingUsers.should.include(data.idUser)
+          done()
+
+    it 'should not re-create a existing relationship between two users', (done) ->
+      userId = 1
+      data =
+        idUser: 2
+      request(sails.express.app)
+        .post("/users/#{userId}/followingUsers")
+        .set('Content-Type', 'application/json')
+        .send(data)
+        .end (err, res) ->
+          if err then return done(err)
+          res.should.have.status 403
+          done()
+
   describe 'GET /users/:id/activity', ->
 
     it 'should return the activities posted by a user', (done) ->

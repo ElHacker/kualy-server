@@ -4,4 +4,7 @@ field = form.field
 module.exports = form(
   field('idCause')
     .isInt()
+
+  field('idUser')
+    .isInt()
 )

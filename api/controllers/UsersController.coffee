@@ -41,6 +41,26 @@ UsersController =
         Users.update userId, {followingCauses: user.followingCauses}, (error, updatedUser) ->
           res.json {followingCauses: updatedUser.followingCauses}, 200
 
+  followUser: (req, res) ->
+    unless req.form.isValid
+      req.json {errors: req.form.errors}, 422
+    else
+      userId = req.param('id')
+      Users.find(userId).done (error, user) ->
+        if error then return res.json({error}, 500)
+        unless user then return res.json({error:'No user with that id'}, 404)
+
+        if user.followingUsers?
+          if req.form.idUser in user.followingUsers
+            return res.json {error: 'User is already following that cause'}, 403
+          else
+            user.followingUsers.push req.form.idUser
+        else
+          user.followingUsers = [req.form.idUser]
+
+        Users.update userId, {followingUsers: user.followingUsers}, (error, updatedUser) ->
+          res.json {followingUsers: updatedUser.followingUsers}, 200
+
   activity: (req, res) ->
     authorId = req.param('id')
     limitItems = req.param('limit') ? 0

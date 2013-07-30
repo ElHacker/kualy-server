@@ -5,6 +5,7 @@ module.exports.policies =
     'update': 'userIsValid'
     'destroy': 'methodNotAllowed'
     'followCause': 'userFollowFieldsAreValid'
+    'followUser': 'userFollowFieldsAreValid'
 
   ActivitiesController:
     'create': 'activityIsValid'
