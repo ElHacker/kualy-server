@@ -3,6 +3,21 @@ request = require 'supertest'
 
 describe 'Activities controller', ->
 
+  describe 'GET /activities', (done) ->
+
+    it 'should return the activities posted by a user', (done) ->
+      userId = 1
+      request(sails.express.app)
+        .get('/activities')
+        .query(author: userId)
+        .set('Content-Type', 'application/json')
+        .end (err, res) ->
+          if err then return done(err)
+          res.should.have.status(200)
+          for activity in res.body.activities
+            activity.author.should.equal(userId)
+          done()
+
   describe 'POST /activities', (done) ->
 
     it 'should not create a invalid formatted activity', (done) ->

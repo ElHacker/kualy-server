@@ -117,20 +117,6 @@ describe 'Users controller', ->
           res.should.have.status 403
           done()
 
-  describe 'GET /users/:id/activity', ->
-
-    it 'should return the activities posted by a user', (done) ->
-      userId = 1
-      request(sails.express.app)
-        .get("/users/#{userId}/activity")
-        .set('Content-Type', 'application/json')
-        .end (err, res) ->
-          if err then return done(err)
-          res.should.have.status(200)
-          for activity in res.body.activities
-            activity.author.should.equal(userId)
-          done()
-
   describe 'GET /users/:id/feed', ->
 
     it 'should return the feed containing activities by users and causes followed by a user', (done) ->

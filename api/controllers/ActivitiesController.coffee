@@ -1,5 +1,19 @@
 ActivitiesController =
 
+  index: (req, res) ->
+    authorId = req.param('author')
+    limitItems = req.param('limit') ? 0
+    skipItems = req.param('skip') ? 0
+
+    Activities.findAllByAuthor(authorId)
+      .sort('createdAt DESC')
+      .limit(limitItems)
+      .skip(skipItems)
+      .done (err, activities) ->
+        if err
+          return console.log err
+        res.json {activities}
+
   create: (req, res) ->
     unless req.form.isValid
       # Invalid form, handle errors

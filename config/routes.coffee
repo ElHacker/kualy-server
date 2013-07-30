@@ -10,10 +10,6 @@ module.exports.routes =
     controller: 'users'
     action: 'followUser'
 
-  'get /users/:id/activity':
-    controller: 'users'
-    action: 'activity'
-
   'get /users/:id/feed':
     controller: 'users'
     action: 'feed'
