@@ -59,6 +59,35 @@ describe 'Users controller', ->
           res.should.have.status 405
           done()
 
+  describe 'POST /users/:id/followingCauses', ->
+
+    it 'should create a relationship between a user and a cause', (done) ->
+      userId = 1
+      data =
+        idCause: 2
+      request(sails.express.app)
+        .post("/users/#{userId}/followingCauses")
+        .set('Content-Type', 'application/json')
+        .send(data)
+        .end (err, res) ->
+          if err then return done(err)
+          res.should.have.status 200
+          res.body.followingCauses.should.include(data.idCause)
+          done()
+
+    it 'should not re-create a existing relationship between a user and a cause', (done) ->
+      userId = 1
+      data =
+        idCause: 1
+      request(sails.express.app)
+        .post("/users/#{userId}/followingCauses")
+        .set('Content-Type', 'application/json')
+        .send(data)
+        .end (err, res) ->
+          if err then return done(err)
+          res.should.have.status 403
+          done()
+
   describe 'GET /users/:id/activity', ->
 
     it 'should return the activities posted by a user', (done) ->
