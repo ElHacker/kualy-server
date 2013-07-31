@@ -5,9 +5,9 @@ module.exports =
     location: 'STRING'
     mediaURL: 'STRING'
     karma: 
-      type: 'INTEGER'
-      defaultsTo: 0
+      type: ['INTEGER']
+      defaultsTo: []
     author: 'INTEGER'
     supportsCause: 'INTEGER'
-    mentions: [ 'INTEGER' ]
-    repliesTo: [ 'INTEGER' ]
+    mentions: ['INTEGER']
+    repliesTo: ['INTEGER']
