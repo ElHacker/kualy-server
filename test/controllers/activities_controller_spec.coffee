@@ -49,3 +49,16 @@ describe 'Activities controller', ->
           if err then done(err)
           res.should.have.status 200
           done()
+
+  describe 'GET /activities/:id', ->
+
+    it 'should display one activity info', (done) ->
+      activityId = 1
+      request(sails.express.app)
+        .get("/activities/#{activityId}")
+        .set('Content-Type', 'application/json')
+        .end (err, res) ->
+          if err then done(err)
+          res.should.have.status 200
+          res.body.id.should.eql activityId
+          done()
