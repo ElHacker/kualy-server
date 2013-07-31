@@ -62,3 +62,32 @@ describe 'Activities controller', ->
           res.should.have.status 200
           res.body.id.should.eql activityId
           done()
+
+  describe 'POST /activities/:id/karma', ->
+
+    it 'should create a karma relationship between activity and a user', (done) ->
+      activityId = 1
+      data =
+        userId: 1
+      request(sails.express.app)
+        .post("/activities/#{activityId}/karma")
+        .send(data)
+        .set('Content-Type', 'application/json')
+        .end (err, res) ->
+          if err then done(err)
+          res.should.have.status 200
+          res.body.karma.should.include data.userId
+          done()
+
+    it 'should not create a invalid karma relationship between activity and a user', (done) ->
+      activityId = 1
+      data =
+        userId: 'notValid'
+      request(sails.express.app)
+        .post("/activities/#{activityId}/karma")
+        .send(data)
+        .set('Content-Type', 'application/json')
+        .end (err, res) ->
+          if err then done(err)
+          res.should.have.status 422
+          done()

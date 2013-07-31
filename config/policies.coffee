@@ -9,3 +9,4 @@ module.exports.policies =
 
   ActivitiesController:
     'create': 'activityIsValid'
+    'upKarma': 'activityKarmaFieldIsValid'

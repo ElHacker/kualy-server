@@ -13,3 +13,7 @@ module.exports.routes =
   'get /users/:id/feed':
     controller: 'users'
     action: 'feed'
+
+  'post /activities/:id/karma':
+    controller: 'activities'
+    action: 'upKarma'
