@@ -5,6 +5,7 @@ Users = [
     username: 'HackerOfDreams'
     bio: 'Super Hacker'
     email: 'braulio@kualy.com'
+    password: 'secret'
     followingUsers: []
     followingCauses: [1]
     collaboratingCauses: [1]
@@ -15,6 +16,7 @@ Users = [
     username: 'FooBar'
     bio: 'Extra foo bar'
     email: 'foo@bar.com'
+    password: 'foobar'
     followingUsers: [1]
     followingCauses: [1, 2]
     collaboratingCauses: [1, 2]

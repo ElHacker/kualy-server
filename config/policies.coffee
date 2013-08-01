@@ -1,12 +1,14 @@
 module.exports.policies =
-  '*': true
+  '*': 'authenticated'
 
   UsersController:
-    'update': 'userIsValid'
-    'destroy': 'methodNotAllowed'
-    'followCause': 'userFollowFieldsAreValid'
-    'followUser': 'userFollowFieldsAreValid'
+    '*': 'authenticated'
+    'update': ['authenticated', 'userIsValid']
+    'destroy': ['authenticated', 'methodNotAllowed']
+    'followCause': ['authenticated', 'userFollowFieldsAreValid']
+    'followUser': ['authenticated', 'userFollowFieldsAreValid']
 
   ActivitiesController:
-    'create': 'activityIsValid'
-    'upKarma': 'activityKarmaFieldIsValid'
+    '*': 'authenticated'
+    'create': ['authenticated', 'activityIsValid']
+    'upKarma': ['authenticated', 'activityKarmaFieldIsValid']

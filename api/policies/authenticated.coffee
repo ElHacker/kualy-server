@@ -1,5 +1,9 @@
-module.exports = (req, res, ok) ->
-  if req.session.authenticated
-    ok()
+passport = require 'passport'
+
+# Authenticate using HTTP Digest credentials, with session support disabled
+module.exports = (req, res, next) ->
+  if sails.config.environment == 'development'
+    # Avoid authentication if on development environment
+    next()
   else
-    res.send "You are not permitted to perform this action.", 403
+    passport.authenticate('digest', session: false)(req, res, next)

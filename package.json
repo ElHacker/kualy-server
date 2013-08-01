@@ -8,7 +8,9 @@
     "optimist": "0.4.0",
     "async": "0.2.9",
     "express-form": "0.7.2",
-    "ejs": "~0.8.4"
+    "ejs": "~0.8.4",
+    "passport": "~0.1.17",
+    "passport-http": "~0.2.2"
   },
   "devDependencies": {
     "mocha": "1.12.0",
